@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherAppMAUI.MainPage"
+             Title=""
+             BackgroundColor="Black">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Salvos" Clicked="SalvosPage"/> <!-- Botão para ir para os Salvos-->
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout Spacing="10">
+            <Label Text="Weather App" FontSize="24" TextColor="White" HorizontalOptions="Center"/>
+            <StackLayout Orientation="Horizontal" Spacing="10" Padding="10">
+                <Entry x:Name="txt_cidade" Placeholder="Digite a cidade!" PlaceholderColor="WhiteSmoke" HorizontalOptions="FillAndExpand"/>
+                <Button Text="Procurar" Background="Blue" TextColor="White" Clicked="pegarPrevisao"/>
+            </StackLayout>
+            <BoxView WidthRequest="20"/>
+            <StackLayout x:Name="stack_content" IsVisible="False">
+                <Grid HeightRequest="200" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image x:Name="weatherImage" Source="one.png" />
+                </Grid>
+                <Label x:Name="label_descricao" Text="Tempestade" HorizontalOptions="Center" FontSize="28" FontFamily="Arial" FontAttributes="Bold"/>
+                <StackLayout Orientation="Horizontal" Padding="16, 48, 16, 0" >
+                    <Label Text="Cidade:" HorizontalOptions="Start" FontSize="28" FontFamily="Arial" />
+                    <BoxView  BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                    <Label x:Name="label_cidade" Text="Jaú" HorizontalOptions="Start" FontSize="32" FontFamily="Arial" Padding="0,0,32,0"/>
+                </StackLayout>
+                <BoxView WidthRequest="20"/>
+                <StackLayout Orientation="Horizontal" Padding="16, 0, 16, 0" >
+                    <Label Text="Temperatura:" HorizontalOptions="Start" FontSize="28" FontFamily="Arial" />
+                    <BoxView  BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"/>
+                    <Label x:Name="label_temperatura" Text="22°C" HorizontalOptions="Start" FontSize="32" FontFamily="Arial" Padding="0,0,32,0"/>
+                </StackLayout>
+                <Button x:Name="button_salvar" Text="Salvar" FontSize="24" TextColor="White" BackgroundColor="Blue" Padding="10" Margin="16,10,16,10" IsEnabled="False" Clicked="salvarPrevisao"/>
+            </StackLayout>
+            <Label x:Name="label_erro" Text="" HorizontalOptions="Center" FontSize="28" FontFamily="Arial" FontAttributes="Bold" IsVisible="False"/>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

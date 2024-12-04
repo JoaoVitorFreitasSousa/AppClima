@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherAppMAUI.Views.SalvosPage"
+             Title=""
+             BackgroundColor="Black">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Voltar" Clicked="VoltarHome" Order="Primary" Priority="0"/>
+        <!-- Botão para ir para os Salvos-->
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="txt_search" Margin="10" Placeholder="Buscar pelo nome da cidade" TextChanged="txt_search_TextChanged"/>
+            <ListView x:Name="lst_salvos">
+                <ListView.Header>
+                    <Grid ColumnDefinitions="3* , *, *"> <!-- Definindo as colunas do grid, onde será dividido em 3 sendo que a primeira coluna tera 3x o tamanho da primeira -->
+                        <Label Grid.Column="0" Text="Cidade" FontAttributes="Bold"/>
+                        <Label Grid.Column="1" Text="Temperatura" FontAttributes="Bold"/>
+                        <Label Grid.Column="2" Text="Data" FontAttributes="Bold"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowDefinitions="Auto" ColumnDefinitions="3* , *, *">
+                                <Label Grid.Column="0" Text="{Binding Title}"/>
+                                <Label Grid.Column="1" Text="{Binding Temperature}"/>
+                                <Label Grid.Column="2" Text="{Binding DataPesquisa}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
